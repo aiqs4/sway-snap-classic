@@ -1,8 +1,8 @@
-name: sway
+name: sway-classic
 # title:
 type: app
 base: core18
-version: '1.2.0-24'
+version: '1.2.0-24-classic'
 summary: i3-compatible Wayland compositor
 description: |
   Sway is a tiling window manager and Wayland compositor, inspired by i3, and written in C. It is designed as a drop in replacement for i3 using the more modern Wayland display server protocol and wlroots compositor library.
@@ -13,7 +13,7 @@ description: |
 # adopt-info: devmode # use 'strict' once you have the right plugs and slots
 
 grade: devel
-confinement: devmode
+confinement: classic
 
 # architectures:
 #   - build-on: [amd64, i386]
@@ -70,8 +70,6 @@ environment:
 apps:
   sway:
     command: usr/bin/sway
-    extensions:
-      - gnome-3-28
     desktop: usr/share/wayland-sessions/sway.desktop
   swaybar:
     command: usr/bin/swaybar
@@ -91,57 +89,6 @@ apps:
   swaynag:
     command: usr/bin/swaynag
     aliases: [ swaynag ]
-
-
-# slots:
-#   wayland-server: # INFO: new name for `x11` provider
-#   xwayland: # INFO: new name for `x11` provider
-
-plugs:
-  # TODO: org.a11y.Bus ...
-  ## --- DBUS ---
-  # my-login: # org.freedesktop.login1.Session
-  #   bus: session
-  #   interface: dbus
-  #   name: org.freedesktop.login1   
-
-  # my-policykit: # org.freedesktop.PolicyKit1.Authority
-  #   bus: session
-  #   interface: dbus
-  #   name: org.freedesktop.PolicyKit1
-  
-  # my-systemd1: # org.freedesktop.systemd1.Manager
-  #   bus: session
-  #   interface: dbus
-  #   name: org.freedesktop.systemd1
-
-  wayland:
-  x11:
-  desktop:
-  desktop-legacy:
-  opengl:
-  framebuffer:
-  # classic-support: # FIXME: blocks uploading
-  # kernel-module-control: # FIXME: blocks uploading
-  kernel-module-observe:
-  hardware-observe:
-  display-control:
-  locale-control:
-  login-session-control:
-  login-session-observe:
-  home:
-  network:
-  mount-observe:
-  network-observe:
-  system-observe:
-  # removeable-media: # TODO: just testing
-  # alsa: # TODO: just testing
-  # pulseaudio: # TODO: just testing
-  # gnome:
-
-  system-files:
-    read:
-      -  /etc/debian_version
 
 
 build-packages:
