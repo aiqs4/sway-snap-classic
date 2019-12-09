@@ -202,6 +202,7 @@ parts:
       git checkout 9796abccedef881e99d293a2658c4da9466acd88
     build-packages:
       - libcairo2-dev
+      - libdrm-dev
       - libpango1.0-dev
       - libgdk-pixbuf2.0-dev
       - libsystemd-dev
@@ -211,6 +212,14 @@ parts:
       - libxkbcommon-dev
       - libpixman-1-dev
       - libpng-dev
+      - libxcb1-dev
+      - libxcb-composite0-dev
+      - libxcb-icccm4-dev
+      - libxcb-image0-dev
+      - libxcb-render0-dev
+      - libxcb-xfixes0-dev
+      - libpcre3-dev
+      - libxcb-xinput-dev
       - libpam0g-dev
       - libegl1-mesa-dev
       - libgles2-mesa-dev
@@ -346,6 +355,8 @@ parts:
 
       - libglbinding2
 
+      
+
       - libvdpau1
       - libva-drm2
       - vdpau-driver-all
@@ -357,6 +368,8 @@ parts:
       - libglfw3-wayland
       - libwayland-egl1
       # - libwayland-egl++0 ## TODO: not found on core18
+      - on amd64,i386:
+        - libdrm-intel1
 
 
   wayland:
