@@ -69,9 +69,9 @@ environment:
 
 apps:
   sway:
-    command: bin/sway
-  sway-real:
     command: usr/bin/sway
+    extensions:
+      - gnome-3-28
     desktop: usr/share/wayland-sessions/sway.desktop
   swaybar:
     command: usr/bin/swaybar
@@ -151,13 +151,6 @@ build-packages:
 
 
 parts:
-  app-wrappers:
-    plugin: dump
-    source: app-wrappers/
-    organize:
-      sway: bin/sway
-
-
   wayland-protocols:
     source: https://gitlab.freedesktop.org/wayland/wayland-protocols.git
     source-tag: '1.18'
@@ -210,33 +203,18 @@ parts:
       - libcairo2-dev
       - libpango1.0-dev
       - libgdk-pixbuf2.0-dev
-      # - libsystemd0
       - libsystemd-dev
-      # - libcap2-bin    ## ------
       - libcap-dev
-      # - libdbus-1-dev
-      # - libdrm-dev
-      # - libevdev-dev
       - libgbm-dev
       - libinput-dev
       - libxkbcommon-dev
       - libpixman-1-dev
       - libpng-dev
-      # - libxcb1-dev
-      # - libxcb-composite0-dev
-      # - libxcb-icccm4-dev
-      # - libxcb-image0-dev
-      # - libxcb-xinput-dev
-      # - libxcb-render0-dev
-      # - libxcb-xfixes0-dev
-      # - libpcre3-dev
-      # - libpam0g-dev
-      # - libegl1
+      - libpam0g-dev
       - libegl1-mesa-dev
       - libgles2-mesa-dev
       - libwayland-egl-backend-dev
       - libwayland-dev
-      # - libwayland-egl1
     stage-packages:
       - libdrm2
       - libegl1
